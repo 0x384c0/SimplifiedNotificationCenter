@@ -4,26 +4,47 @@ import SimplifiedNotificationCenter
 
 class Tests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testNotifications() {
+        let notifications = Notifications()
+        testNotification(notifications.boolNotification,        object: true)
+        testNotification(notifications.stringboolNotification,  object: "true")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    private func testNotification<T:SimpleNotificationProtocol>(notification:T,object:T.T){
+        print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
+        let readyExpectation = expectationWithDescription("ready.\(#function)")
+        //test subscribed
+        print("SUBSCRIBE")
+        notification.subscribe { (value, sender) in
+            print("RECEIVE")
+            readyExpectation.fulfill()
         }
+        print("SEND")
+        notification.post(object)
+        
+        waitForExpectationsWithTimeout(1){ error in
+            XCTAssertNil(error, "\(#function) Error receive notification")
+        }
+        
+        
+        //test unsusbscribed
+        notification.subscribe { (value, sender) in
+            print("RECEIVE")
+            XCTAssertTrue(false, "Notification is not unsubscribed")
+        }
+        print("UNSUBSCRIBE")
+        notification.unSubscribe()
+        print("SEND")
+        notification.post(object)
+        
     }
     
+}
+
+
+class Notifications {
+    var
+    boolNotification                = SimpleNotification<Bool>                                    (name: "TEST_BOOL"),
+    stringboolNotification          = SimpleNotification<String>                                  (name: "TEST_STRING")
 }
