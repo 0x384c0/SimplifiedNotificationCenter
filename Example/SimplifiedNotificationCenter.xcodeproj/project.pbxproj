@@ -521,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E3796D185DFC3A5225A7939 /* Pods-SimplifiedNotificationCenter_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -533,6 +534,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplifiedNotificationCenter_Example.app/SimplifiedNotificationCenter_Example";
 			};
 			name = Debug;
 		};
@@ -540,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F53A6BB2FC2443E26CDA8E3 /* Pods-SimplifiedNotificationCenter_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -548,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplifiedNotificationCenter_Example.app/SimplifiedNotificationCenter_Example";
 			};
 			name = Release;
 		};
