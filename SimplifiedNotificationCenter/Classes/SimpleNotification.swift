@@ -26,12 +26,11 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
      - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
      */
     public func subscribe(handler: SimpleNotificationHandler?){
-        if handler == nil {
-            unSubscribe()
-        } else {
+        unSubscribe()
+        if handler != nil {
+            notificationHandler = handler
             _subscribe()
         }
-        notificationHandler = handler
     }
     /**
      Posts the notification with the given value to the specified center.
@@ -40,6 +39,8 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
     public func post(object: T) {
         if let object = object as? AnyObject{
             NSNotificationCenter.defaultCenter().postNotificationName(name, object: object)
+        } else {
+            handleError("SimpleNotification TYPE ERROR \n object \(object.dynamicType) is not AnyObject")
         }
     }
     /**
@@ -63,6 +64,12 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
     @objc func methodOfReceivedNotification(notification: NSNotification){
         if let value = notification.object as? T {
             notificationHandler?(value: value, sender: sender)
+        } else {
+            var givenTypeString = "nil"
+            if let givenType = notification.object?.dynamicType{
+                givenTypeString = String(givenType)
+            }
+            handleError("SimpleNotification TYPE ERROR \n expected type: \(T.self) \n given type:     \(givenTypeString)")
         }
     }
     
@@ -78,4 +85,15 @@ public protocol BaseNotificationProtocol {
     func post(object: T)
     func unSubscribe()
     func subscribe(handler: ((value:T, sender:AnyObject?) -> Void)?)
+}
+
+extension SimpleNotification {
+    func handleError(text:String){
+        #if DEBUG
+            preconditionFailure(text)
+        #else
+            //dont crash app in production mode
+            print(text)
+        #endif
+    }
 }

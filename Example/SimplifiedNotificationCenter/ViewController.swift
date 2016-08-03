@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     //MARK: UI Actions
     @IBAction func subscribeTap(sender: AnyObject?) {
         notifications.stringNotification.subscribe {[weak self] (value, sender) in
+            print(value)
             self?.receivedText.text = value
         }
     }
@@ -25,35 +26,72 @@ class ViewController: UIViewController {
     @IBAction func postNotificationTap(sender: AnyObject) {
         notifications.stringNotification.post(textForSending.text!)
     }
-    //MARK: LifeCycle
-    override func viewDidLoad() {
+    @IBAction func reInitTap(sender: AnyObject?) {
         subscribeTap(nil)
         objectNotificationExample()
+        comunicationBetweenDifferentClassesExample()
+    }
+    //MARK: LifeCycle
+    override func viewDidLoad() {
+        reInitTap(nil)
     }
     
     //MARK: Others
     var notifications = Notifications()
     
     func objectNotificationExample(){
+        print("\n\(#function)")
         notifications.objectNotification.subscribe {(value, sender) in
             print("sender: \(sender.dynamicType)")
-            print("value: \(value.title)")
+            print("value:  \(value.title)")
         }
-        notifications.objectNotification.post( SampleObject(title: "Sample Title") )
+        notifications.objectNotification.post(SampleObject(title: "objectNotificationExample Sample Title") )
+    }
+    
+    func comunicationBetweenDifferentClassesExample(){
+        print("\n\(#function)")
+        let
+        sampleClass = SampleClass(),
+        anotherClass = AnotherClass()
+        anotherClass.post()
+        
+        sampleClass//supress unused var warning
     }
     
 }
 
 class Notifications{
-    var
-    stringNotification = SimpleNotification<String>         (name: "Example.stringNotification"),
-    objectNotification = SimpleNotification<SampleObject>   (name: "Example.objectNotification")
+    let
+    testNotification    = SimpleNotification<String>         (name: "Example.testNotification"),
+    stringNotification  = SimpleNotification<String>         (name: "Example.stringNotification"),
+    objectNotification  = SimpleNotification<SampleObject>   (name: "Example.objectNotification")
 }
 
+
+
+
+//MARK: samples
 class SampleObject {
     init(title:String){
         self.title = title
     }
     let title:String
+}
+
+class SampleClass {
+    var notifications = Notifications()
+    init(){
+        notifications.testNotification.subscribe{(value, _) in
+            print("value: \(value)")
+        }
+    }
+}
+
+class AnotherClass {
+    func post(){
+        Notifications().testNotification.post("comunicationBetweenDifferentClassesExample Test text")
+        //or use
+        //SimpleNotification<String>(name: "Example.testNotification").post("comunicationBetweenDifferentClassesExample Test text")
+    }
 }
 
