@@ -2,8 +2,8 @@ import UIKit
 import XCTest
 import SimplifiedNotificationCenter
 
+
 class Tests: XCTestCase {
-    
     
     func testNotifications() {
         let notifications = Notifications()
@@ -11,7 +11,7 @@ class Tests: XCTestCase {
         testNotification(notifications.stringboolNotification,  object: "true")
     }
     
-    private func testNotification<T:SimpleNotificationProtocol>(notification:T,object:T.T){
+    private func testNotification<T:BaseNotificationProtocol>(notification:T,object:T.T){
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
         let readyExpectation = expectationWithDescription("ready.\(#function)")
         //test subscribed

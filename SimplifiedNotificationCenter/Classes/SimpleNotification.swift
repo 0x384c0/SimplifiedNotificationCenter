@@ -8,15 +8,15 @@
 
 import Foundation
 
-class SimpleNotification<T> :BaseNotificationProtocol{
-    typealias SimpleNotificationHandler = (value:T, sender:AnyObject?) -> Void
+public class SimpleNotification<T> :BaseNotificationProtocol{
+    public typealias SimpleNotificationHandler = (value:T, sender:AnyObject?) -> Void
     
     private var
     notificationHandler:SimpleNotificationHandler?,
     sender: AnyObject?,
     name: String
     
-    init(name: String, sender: AnyObject? = nil){
+    public init(name: String, sender: AnyObject? = nil){
         self.name = name
         self.sender = sender
     }
@@ -25,7 +25,7 @@ class SimpleNotification<T> :BaseNotificationProtocol{
      subscribe to notification with handler or unSubscribe.
      - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
      */
-    func subscribe(handler: SimpleNotificationHandler?){
+    public func subscribe(handler: SimpleNotificationHandler?){
         if handler == nil {
             unSubscribe()
         } else {
@@ -37,7 +37,7 @@ class SimpleNotification<T> :BaseNotificationProtocol{
      Posts the notification with the given value to the specified center.
      - parameter object:  The data to be sent with the notification.
      */
-    func post(object: T) {
+    public func post(object: T) {
         if let object = object as? AnyObject{
             NSNotificationCenter.defaultCenter().postNotificationName(name, object: object)
         }
@@ -45,7 +45,7 @@ class SimpleNotification<T> :BaseNotificationProtocol{
     /**
      Unsubscribe and remove notificationHandler
      */
-    func unSubscribe(){
+    public func unSubscribe(){
         notificationHandler = nil
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -73,7 +73,7 @@ class SimpleNotification<T> :BaseNotificationProtocol{
 }
 
 //for tests
-protocol BaseNotificationProtocol {
+public protocol BaseNotificationProtocol {
     associatedtype T
     func post(object: T)
     func unSubscribe()
