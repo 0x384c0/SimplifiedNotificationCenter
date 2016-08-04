@@ -4,7 +4,6 @@ Released on Aug 2016.
 
 #### Added
 - Change log
-- SPM Support
 #### Updated
 - Unit tests
 - Docs

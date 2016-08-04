@@ -12,12 +12,9 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
     public typealias SimpleNotificationHandler = (value:T, sender:AnyObject?) -> Void
     
     private var
-    /// handler that store code block
-    notificationHandler:SimpleNotificationHandler?,
-    /// notification sender(not required)
-    sender: AnyObject?,
-    /// name for NSNotificationCenter
-    name: String
+    notificationHandler:SimpleNotificationHandler?, // handler that store code block
+    sender: AnyObject?,                             // notification sender(not required)
+    name: String                                    // name for NSNotificationCenter
     /**
      Creates notification class.
      - parameter name:  name for NSNotificationCenter
