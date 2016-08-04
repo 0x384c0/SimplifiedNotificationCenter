@@ -7,22 +7,29 @@
 //
 
 import Foundation
-
+/// wrapper around NSNotificationCenter
 public class SimpleNotification<T> :BaseNotificationProtocol{
     public typealias SimpleNotificationHandler = (value:T, sender:AnyObject?) -> Void
     
     private var
+    /// handler that store code block
     notificationHandler:SimpleNotificationHandler?,
+    /// notification sender(not required)
     sender: AnyObject?,
+    /// name for NSNotificationCenter
     name: String
-    
+    /**
+     Creates notification class.
+     - parameter name:  name for NSNotificationCenter
+     - parameter sender:  notification sender(not required)
+     */
     public init(name: String, sender: AnyObject? = nil){
         self.name = name
         self.sender = sender
     }
     //MARK: public methods
     /**
-     subscribe to notification with handler or unSubscribe.
+     subscribe to notification with handler or unSubscribe from notifications.
      - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
      */
     public func subscribe(handler: SimpleNotificationHandler?){
@@ -80,11 +87,23 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
 }
 
 //for tests
+/// public for wrapper around NSNotificationCenter
 public protocol BaseNotificationProtocol {
     associatedtype T
-    func post(object: T)
-    func unSubscribe()
+    /**
+     subscribe to notification with handler or unSubscribe from notifications.
+     - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
+     */
     func subscribe(handler: ((value:T, sender:AnyObject?) -> Void)?)
+    /**
+     Posts the notification with the given value to the specified center.
+     - parameter object:  The data to be sent with the notification.
+     */
+    func post(object: T)
+    /**
+     Unsubscribe and remove notificationHandler
+     */
+    func unSubscribe()
 }
 
 extension SimpleNotification {
