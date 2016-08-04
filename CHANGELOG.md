@@ -4,9 +4,13 @@ Released on
 
 ## [1.0.3]
 Released on Aug 2016.
+
 ### Fixed
+
 - Docs
+
 ### Added
+
 - Travis
 
 
@@ -14,8 +18,11 @@ Released on Aug 2016.
 Released on Aug 2016.
 
 #### Added
+
 - Change log
+
 #### Updated
+
 - Unit tests
 - Docs
 
@@ -25,4 +32,5 @@ Released on Aug 2016.
 Released on Aug 2016.
 
 #### Added
+
 - Initial releasee.
