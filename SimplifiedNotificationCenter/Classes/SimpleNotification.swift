@@ -44,11 +44,8 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
      - parameter object:  The data to be sent with the notification.
      */
     public func post(object: T) {
-        if let object = object as? AnyObject{
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: object)
-        } else {
-            handleError("SimpleNotification TYPE ERROR \n object \(object.dynamicType) is not AnyObject")
-        }
+        let data = Wrapper<T>(theValue: object)
+        NSNotificationCenter.defaultCenter().postNotificationName(name, object: data)
     }
     /**
      Unsubscribe and remove notificationHandler
@@ -69,7 +66,7 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
     }
     
     @objc func methodOfReceivedNotification(notification: NSNotification){
-        if let value = notification.object as? T {
+        if let value = (notification.object as? Wrapper<T>)?.wrappedValue{
             notificationHandler?(value: value, sender: sender)
         } else {
             var givenTypeString = "nil"
@@ -114,5 +111,13 @@ extension SimpleNotification {
             //dont crash app in production mode
             print(text)
         #endif
+    }
+}
+
+
+class Wrapper<T>:AnyObject {
+    var wrappedValue: T
+    init(theValue: T) {
+        wrappedValue = theValue
     }
 }
