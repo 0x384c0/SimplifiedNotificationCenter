@@ -18,5 +18,5 @@ branches:
 script:
 - set -o pipefail && xcodebuild test -workspace Example/SimplifiedNotificationCenter.xcworkspace -scheme SimplifiedNotificationCenter-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
-#- pod trunk push SimplifiedNotificationCenter.podspec
+- pod trunk push SimplifiedNotificationCenter.podspec
 
