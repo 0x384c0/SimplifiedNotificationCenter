@@ -17,6 +17,14 @@ it, simply add the following line to your Podfile:
 pod "SimplifiedNotificationCenter"
 ```
 
+If you using swift 3, add the following line to your Podfile:
+
+```ruby
+pod "SimplifiedNotificationCenter",
+:git => 'https://github.com/0x384c0/SimplifiedNotificationCenter.git',
+:branch => 'swift3'
+```
+
 ## Usage
 
 Add `import SimplifiedNotificationCenter` to your source code

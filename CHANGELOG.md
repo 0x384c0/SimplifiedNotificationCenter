@@ -1,3 +1,10 @@
+## [1.0.5]
+Released on Aug 2016.
+
+#### Added
+- swift 3 support
+
+
 ## [1.0.4]
 Released on Aug 2016.
 
