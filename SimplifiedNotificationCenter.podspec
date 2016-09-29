@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SimplifiedNotificationCenter'
-  s.version          = '1.0.5'
+  s.version          = '1.1.0'
   s.summary          = 'Simple Notification Center'
 
 

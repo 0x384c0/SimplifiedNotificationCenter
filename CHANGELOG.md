@@ -1,8 +1,8 @@
-## [1.0.5]
-Released on Aug 2016.
+## [1.1.0]
+Released on Sept 2016.
 
 #### Added
-- swift 3 support
+- swift 3 migration
 
 
 ## [1.0.4]

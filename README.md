@@ -17,12 +17,12 @@ it, simply add the following line to your Podfile:
 pod "SimplifiedNotificationCenter"
 ```
 
-If you using swift 3, add the following line to your Podfile:
+If you using swift 2.2, add the following line to your Podfile:
 
 ```ruby
 pod "SimplifiedNotificationCenter",
 :git => 'https://github.com/0x384c0/SimplifiedNotificationCenter.git',
-:branch => 'swift3'
+:branch => 'swift2.2'
 ```
 
 ## Usage
@@ -95,7 +95,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - `ios 8.0 and higher`
-- `swift v2.2 and higher`
+- `swift v3.0`
 
 
 ## Unit Tests
