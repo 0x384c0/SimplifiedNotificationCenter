@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		27CE3234E2B53E3F696B5223 /* Pods_SimplifiedNotificationCenter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20289DA98E8D27F233890832 /* Pods_SimplifiedNotificationCenter_Tests.framework */; };
-		496239C61D5305B9000686CF /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 496239C51D5305B9000686CF /* CHANGELOG.md */; };
-		496239C81D530BF0000686CF /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496239C71D530BF0000686CF /* Package.swift */; };
-		496239CA1D532596000686CF /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 496239C91D532596000686CF /* .travis.yml */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,8 +31,8 @@
 		04DA7DC270BA00C81F146430 /* SimplifiedNotificationCenter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SimplifiedNotificationCenter.podspec; path = ../SimplifiedNotificationCenter.podspec; sourceTree = "<group>"; };
 		20289DA98E8D27F233890832 /* Pods_SimplifiedNotificationCenter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplifiedNotificationCenter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		496239C51D5305B9000686CF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
-		496239C71D530BF0000686CF /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		496239C91D532596000686CF /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		499F2FDF1D9D354200123FF1 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		4E3796D185DFC3A5225A7939 /* Pods-SimplifiedNotificationCenter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplifiedNotificationCenter_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplifiedNotificationCenter_Tests/Pods-SimplifiedNotificationCenter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SimplifiedNotificationCenter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplifiedNotificationCenter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,8 +146,8 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				496239C71D530BF0000686CF /* Package.swift */,
 				04DA7DC270BA00C81F146430 /* SimplifiedNotificationCenter.podspec */,
+				499F2FDF1D9D354200123FF1 /* Package.swift */,
 				496239C51D5305B9000686CF /* CHANGELOG.md */,
 				EA14C1F58A709CD57F4D9345 /* README.md */,
 				734FADF8A1E6F720F02D6D13 /* LICENSE */,
@@ -260,7 +257,6 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				496239CA1D532596000686CF /* .travis.yml in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,9 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496239C81D530BF0000686CF /* Package.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				496239C61D5305B9000686CF /* CHANGELOG.md in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

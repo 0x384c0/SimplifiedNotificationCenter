@@ -3,6 +3,7 @@ Released on Sept 2016.
 
 #### Added
 - swift 3 migration
+- swift package manager support
 
 
 ## [1.0.4]

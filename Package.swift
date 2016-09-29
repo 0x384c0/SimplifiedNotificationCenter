@@ -7,14 +7,16 @@
 //
 
 
+
+import PackageDescription
+
 let
 name = "SimplifiedNotificationCenter",
 git = "https://github.com/0x384c0/SimplifiedNotificationCenter.git"
 
-//import PackageDescription
-//let package = Package(
-//    name: name,
-//    dependencies: [
-//        .Package(url: git, majorVersion: 1),
-//    ]
-//)
+let package = Package(
+    name: name,
+    dependencies: [
+        .Package(url: git, majorVersion: 1),
+    ]
+)
