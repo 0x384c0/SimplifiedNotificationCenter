@@ -316,6 +316,9 @@
 					20408FAA1FB1B2DDC39055DDD0BBD82B = {
 						LastSwiftMigration = 0800;
 					};
+					A8827F1E87D046EE36717776A637842F = {
+						LastSwiftMigration = 0800;
+					};
 					EFE44DD19A075DF322790478709D4943 = {
 						LastSwiftMigration = 0800;
 					};
@@ -513,6 +516,7 @@
 				PRODUCT_NAME = Pods_SimplifiedNotificationCenter_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -584,6 +588,7 @@
 				PRODUCT_NAME = Pods_SimplifiedNotificationCenter_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
