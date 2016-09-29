@@ -12,9 +12,9 @@ class Tests: XCTestCase {
         testNotification(notifications.stringboolNotification,  object: "true")
     }
     
-    private func testNotification<T:BaseNotificationProtocol>(notification:T,object:T.T){
+    fileprivate func testNotification<T:BaseNotificationProtocol>(_ notification:T,object:T.T){
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
-        let readyExpectation = expectationWithDescription("ready.\(#function)")
+        let readyExpectation = expectation(description: "ready.\(#function)")
         //test subscribed
         print("SUBSCRIBE")
         notification.subscribe { (value, sender) in
@@ -25,7 +25,7 @@ class Tests: XCTestCase {
         print("SEND")
         notification.post(object)
         
-        waitForExpectationsWithTimeout(1){ error in
+        waitForExpectations(timeout: 1){ error in
             XCTAssertNil(error, "\(#function) Error receive notification")
         }
         
@@ -47,7 +47,7 @@ class Tests: XCTestCase {
     func testString(){
         let notifications = Notifications()
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
-        let readyExpectation = expectationWithDescription("ready.\(#function)")
+        let readyExpectation = expectation(description: "ready.\(#function)")
         //test subscribed
         print("SUBSCRIBE")
         notifications.stringboolNotification.subscribe { (value, sender) in
@@ -59,7 +59,7 @@ class Tests: XCTestCase {
         print("SEND")
         notifications.stringboolNotification.post("test")
         
-        waitForExpectationsWithTimeout(1){ error in
+        waitForExpectations(timeout: 1){ error in
             XCTAssertNil(error, "\(#function) Error receive notification")
         }
     }
@@ -71,7 +71,7 @@ class Tests: XCTestCase {
         
         
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
-        let readyExpectation = expectationWithDescription("ready.\(#function)")
+        let readyExpectation = expectation(description: "ready.\(#function)")
         //test subscribed
         print("SUBSCRIBE")
         notification.subscribe { (value, sender) in
@@ -83,7 +83,7 @@ class Tests: XCTestCase {
         print("SEND")
         notification.post(coord)
         
-        waitForExpectationsWithTimeout(1){ error in
+        waitForExpectations(timeout: 1){ error in
             XCTAssertNil(error, "\(#function) Error receive notification")
         }
     }

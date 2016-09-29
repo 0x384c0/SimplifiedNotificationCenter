@@ -14,19 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var textForSending: UITextField!
     @IBOutlet weak var receivedText: UILabel!
     //MARK: UI Actions
-    @IBAction func subscribeTap(sender: AnyObject?) {
+    @IBAction func subscribeTap(_ sender: AnyObject?) {
         notifications.stringNotification.subscribe {[weak self] (value, sender) in
             print(value)
             self?.receivedText.text = value
         }
     }
-    @IBAction func unsubscribeTap(sender: AnyObject) {
+    @IBAction func unsubscribeTap(_ sender: AnyObject) {
         notifications.stringNotification.unSubscribe()
     }
-    @IBAction func postNotificationTap(sender: AnyObject) {
+    @IBAction func postNotificationTap(_ sender: AnyObject) {
         notifications.stringNotification.post(textForSending.text!)
     }
-    @IBAction func reInitTap(sender: AnyObject?) {
+    @IBAction func reInitTap(_ sender: AnyObject?) {
         subscribeTap(nil)
         objectNotificationExample()
         comunicationBetweenDifferentClassesExample()
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     func objectNotificationExample(){
         print("\n\(#function)")
         notifications.objectNotification.subscribe {(value, sender) in
-            print("sender: \(sender.dynamicType)")
+            print("sender: \(type(of: sender))")
             print("value:  \(value.title)")
         }
         notifications.objectNotification.post(SampleObject(title: "objectNotificationExample Sample Title") )
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         anotherClass = AnotherClass()
         anotherClass.post()
         
-        sampleClass//supress unused var warning
+        print(sampleClass)
     }
     
 }

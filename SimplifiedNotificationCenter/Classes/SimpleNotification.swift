@@ -8,10 +8,10 @@
 
 import Foundation
 /// wrapper around NSNotificationCenter
-public class SimpleNotification<T> :BaseNotificationProtocol{
-    public typealias SimpleNotificationHandler = (value:T, sender:AnyObject?) -> Void
+open class SimpleNotification<T> :BaseNotificationProtocol{
+    public typealias SimpleNotificationHandler = (_ value:T, _ sender:AnyObject?) -> Void
     
-    private var
+    fileprivate var
     notificationHandler:SimpleNotificationHandler?, // handler that store code block
     sender: AnyObject?,                             // notification sender(not required)
     name: String                                    // name for NSNotificationCenter
@@ -29,7 +29,7 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
      subscribe to notification with handler or unSubscribe from notifications.
      - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
      */
-    public func subscribe(handler: SimpleNotificationHandler?){
+    open func subscribe(_ handler: SimpleNotificationHandler?){
         unSubscribe()
         if handler != nil {
             notificationHandler = handler
@@ -40,36 +40,36 @@ public class SimpleNotification<T> :BaseNotificationProtocol{
      Posts the notification with the given value to the specified center.
      - parameter object:  The data to be sent with the notification.
      */
-    public func post(object: T) {
+    open func post(_ object: T) {
         let data = Wrapper<T>(theValue: object)
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: data)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: data)
     }
     /**
      Unsubscribe and remove notificationHandler
      */
-    public func unSubscribe(){
+    open func unSubscribe(){
         notificationHandler = nil
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: private methods
-    private func _subscribe(){
-        NSNotificationCenter.defaultCenter().addObserver(
+    fileprivate func _subscribe(){
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.methodOfReceivedNotification(_:)),
-            name:name,
+            name:NSNotification.Name(rawValue: name),
             object: nil
         )
     }
     
-    @objc func methodOfReceivedNotification(notification: NSNotification){
+    @objc func methodOfReceivedNotification(_ notification: Notification){
         if let value = (notification.object as? Wrapper<T>)?.wrappedValue{
-            notificationHandler?(value: value, sender: sender)
+            notificationHandler?(value, sender)
         } else {
             var givenTypeString = "nil"
-            if let givenType = notification.object?.dynamicType{
-                givenTypeString = String(givenType)
-            }
+            let givenType = type(of: notification.object)
+            givenTypeString = String(describing: givenType)
+            
             handleError("SimpleNotification TYPE ERROR \n expected type: \(T.self) \n given type:     \(givenTypeString)")
         }
     }
@@ -88,12 +88,12 @@ public protocol BaseNotificationProtocol {
      subscribe to notification with handler or unSubscribe from notifications.
      - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
      */
-    func subscribe(handler: ((value:T, sender:AnyObject?) -> Void)?)
+    func subscribe(_ handler: ((_ value:T, _ sender:AnyObject?) -> Void)?)
     /**
      Posts the notification with the given value to the specified center.
      - parameter object:  The data to be sent with the notification.
      */
-    func post(object: T)
+    func post(_ object: T)
     /**
      Unsubscribe and remove notificationHandler
      */
@@ -101,7 +101,7 @@ public protocol BaseNotificationProtocol {
 }
 
 extension SimpleNotification {
-    func handleError(text:String){
+    func handleError(_ text:String){
         #if DEBUG
             preconditionFailure(text)
         #else
