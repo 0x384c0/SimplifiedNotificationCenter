@@ -1,3 +1,9 @@
+## [1.1.2]
+Released on Mar 2017.
+
+#### Fixed
+- travis
+
 ## [1.1.1]
 Released on Mar 2017.
 
