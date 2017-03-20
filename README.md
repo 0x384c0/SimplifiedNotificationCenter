@@ -34,7 +34,7 @@ Add `import SimplifiedNotificationCenter` to your source code
 let notification = SimpleNotification<String>(name: "Example.notification")
 
 // subscribe
-notification.subscribe {value in
+notification.subscribe { value in
     print("value:  \(value.title)")
 }
 
@@ -58,7 +58,7 @@ class SampleClass {
         var notifications = Notifications()
         init(){
             //subscribe
-            notifications.testNotification.subscribe{(value, _) in
+            notifications.testNotification.subscribe{ value in
                 print("value: \(value)")
         }
     }
