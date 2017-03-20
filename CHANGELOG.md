@@ -1,3 +1,9 @@
+## [1.1.1]
+Released on Mar 2017.
+
+#### Removed
+- sender from parameters
+
 ## [1.1.0]
 Released on Sept 2016.
 

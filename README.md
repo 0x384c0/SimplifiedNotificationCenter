@@ -34,14 +34,13 @@ Add `import SimplifiedNotificationCenter` to your source code
 let notification = SimpleNotification<String>(name: "Example.notification")
 
 // subscribe
-notification.subscribe {(value, sender) in
-    print("sender: \(sender.dynamicType)")
+notification.subscribe {value in
     print("value:  \(value.title)")
 }
 
 // post
 notification.post("sample text")
-//sample text and sender will be printed
+//sample text be printed
 ```
 
 Passing notifications between different places of application

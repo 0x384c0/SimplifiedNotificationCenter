@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var receivedText: UILabel!
     //MARK: UI Actions
     @IBAction func subscribeTap(_ sender: AnyObject?) {
-        notifications.stringNotification.subscribe {[weak self] (value, sender) in
+        notifications.stringNotification.subscribe {[weak self] value in
             print(value)
             self?.receivedText.text = value
         }
@@ -41,8 +41,7 @@ class ViewController: UIViewController {
     
     func objectNotificationExample(){
         print("\n\(#function)")
-        notifications.objectNotification.subscribe {(value, sender) in
-            print("sender: \(type(of: sender))")
+        notifications.objectNotification.subscribe {value in
             print("value:  \(value.title)")
         }
         notifications.objectNotification.post(SampleObject(title: "objectNotificationExample Sample Title") )
@@ -81,7 +80,7 @@ class SampleObject {
 class SampleClass {
     var notifications = Notifications()
     init(){
-        notifications.testNotification.subscribe{(value, _) in
+        notifications.testNotification.subscribe{value in
             print("value: \(value)")
         }
     }
