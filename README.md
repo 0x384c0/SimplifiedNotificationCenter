@@ -35,8 +35,11 @@ let notification = SimpleNotification<String>(name: "Example.notification")
 
 // subscribe
 notification.subscribe { value in
-    print("value:  \(value.title)")
+    print("value: \(value)")
 }
+
+//scheck is notification subscribed
+print(notification.isSubscribed)
 
 // post
 notification.post("sample text")

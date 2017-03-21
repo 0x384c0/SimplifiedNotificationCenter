@@ -21,6 +21,14 @@ open class SimpleNotification<T> :BaseNotificationProtocol{
     public init(name: String){
         self.name = name
     }
+    //MARK: public variables
+    /**
+     returns true if subscribed
+     */
+    public var isSubscribed:Bool{
+        return notificationHandler != nil
+    }
+    
     //MARK: public methods
     /**
      subscribe to notification with handler or unSubscribe from notifications.
@@ -28,7 +36,7 @@ open class SimpleNotification<T> :BaseNotificationProtocol{
      */
     open func subscribe(_ handler: SimpleNotificationHandler?){
         unSubscribe()
-        if handler != nil {
+        if let handler = handler {
             notificationHandler = handler
             _subscribe()
         }
@@ -81,6 +89,10 @@ open class SimpleNotification<T> :BaseNotificationProtocol{
 /// public for wrapper around NSNotificationCenter
 public protocol BaseNotificationProtocol {
     associatedtype T
+    /**
+     returns true if subscribed
+     */
+    var isSubscribed:Bool{get}
     /**
      subscribe to notification with handler or unSubscribe from notifications.
      - parameter handler:  handler(value). If handler == nil, unSubscribe() will be performed

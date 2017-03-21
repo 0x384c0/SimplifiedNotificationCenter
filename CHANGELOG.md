@@ -1,3 +1,9 @@
+## [1.1.3]
+Released on Mar 2017.
+
+#### Added
+- isSubscribed property
+
 ## [1.1.2]
 Released on Mar 2017.
 

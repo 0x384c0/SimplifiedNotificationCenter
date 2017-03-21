@@ -16,12 +16,14 @@ class Tests: XCTestCase {
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
         let readyExpectation = expectation(description: "ready.\(#function)")
         //test subscribed
+        XCTAssertFalse(notification.isSubscribed)
         print("SUBSCRIBE")
         notification.subscribe { value in
             print("RECEIVE")
             XCTAssertNotNil(value, "value not nil")
             readyExpectation.fulfill()
         }
+        XCTAssertTrue(notification.isSubscribed)
         print("SEND")
         notification.post(object)
         
@@ -37,6 +39,7 @@ class Tests: XCTestCase {
         }
         print("UNSUBSCRIBE")
         notification.unSubscribe()
+        XCTAssertFalse(notification.isSubscribed)
         print("SEND")
         notification.post(object)
         
@@ -49,6 +52,7 @@ class Tests: XCTestCase {
         print("-+-+-+-+-+-+-+-+-+-+-+\n testing \(#function)\n-+-+-+-+-+-+-+-+-+-+-+")
         let readyExpectation = expectation(description: "ready.\(#function)")
         //test subscribed
+        XCTAssertFalse(notifications.stringboolNotification.isSubscribed)
         print("SUBSCRIBE")
         notifications.stringboolNotification.subscribe { value in
             print("RECEIVE")
@@ -56,6 +60,7 @@ class Tests: XCTestCase {
             XCTAssertTrue(value == "test", "Error receive value")
             readyExpectation.fulfill()
         }
+        XCTAssertTrue(notifications.stringboolNotification.isSubscribed)
         print("SEND")
         notifications.stringboolNotification.post("test")
         
