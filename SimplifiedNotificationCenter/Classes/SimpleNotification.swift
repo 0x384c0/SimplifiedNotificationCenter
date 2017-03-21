@@ -9,25 +9,22 @@
 import Foundation
 /// wrapper around NSNotificationCenter
 open class SimpleNotification<T> :BaseNotificationProtocol{
-    public typealias SimpleNotificationHandler = (_ value:T, _ sender:AnyObject?) -> Void
+    public typealias SimpleNotificationHandler = (_ value:T) -> Void
     
     fileprivate var
     notificationHandler:SimpleNotificationHandler?, // handler that store code block
-    sender: AnyObject?,                             // notification sender(not required)
     name: String                                    // name for NSNotificationCenter
     /**
      Creates notification class.
      - parameter name:  name for NSNotificationCenter
-     - parameter sender:  notification sender(not required)
      */
-    public init(name: String, sender: AnyObject? = nil){
+    public init(name: String){
         self.name = name
-        self.sender = sender
     }
     //MARK: public methods
     /**
      subscribe to notification with handler or unSubscribe from notifications.
-     - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
+     - parameter handler:  handler(value). If handler == nil, unSubscribe() will be performed
      */
     open func subscribe(_ handler: SimpleNotificationHandler?){
         unSubscribe()
@@ -64,7 +61,7 @@ open class SimpleNotification<T> :BaseNotificationProtocol{
     
     @objc func methodOfReceivedNotification(_ notification: Notification){
         if let value = (notification.object as? Wrapper<T>)?.wrappedValue{
-            notificationHandler?(value, sender)
+            notificationHandler?(value)
         } else {
             var givenTypeString = "nil"
             let givenType = type(of: notification.object)
@@ -86,9 +83,9 @@ public protocol BaseNotificationProtocol {
     associatedtype T
     /**
      subscribe to notification with handler or unSubscribe from notifications.
-     - parameter handler:  handler(value, sender). If handler == nil, unSubscribe() will be performed
+     - parameter handler:  handler(value). If handler == nil, unSubscribe() will be performed
      */
-    func subscribe(_ handler: ((_ value:T, _ sender:AnyObject?) -> Void)?)
+    func subscribe(_ handler: ((_ value:T) -> Void)?)
     /**
      Posts the notification with the given value to the specified center.
      - parameter object:  The data to be sent with the notification.
