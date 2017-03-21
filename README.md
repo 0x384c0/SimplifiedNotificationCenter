@@ -41,7 +41,7 @@ notification.subscribe { value in
 //scheck is notification subscribed
 print(notification.isSubscribed)
 
-// post
+//post
 notification.post("sample text")
 //sample text be printed
 ```
