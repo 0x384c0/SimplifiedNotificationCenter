@@ -1,3 +1,9 @@
+## [1.1.4]
+Released on Dec 2018.
+
+#### Added
+- swift 4 support
+
 ## [1.1.3]
 Released on Mar 2017.
 
