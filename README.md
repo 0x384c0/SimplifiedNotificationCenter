@@ -97,7 +97,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - `ios 8.0 and higher`
-- `swift v3.0`
+- `swift v4.0`
 
 
 ## Unit Tests
