@@ -1,4 +1,10 @@
 ## [1.1.5]
+Released on May 2021.
+
+#### Added
+- swift 6 support
+
+## [1.1.5]
 Released on Dec 2018.
 
 #### Added
