@@ -7,5 +7,5 @@ branches:
         - master
 
 script:
-- set -o pipefail && xcodebuild test -destination $IOS_DESTINATION -workspace Example/SimplifiedNotificationCenter.xcworkspace -scheme SimplifiedNotificationCenter-Example -sdk $IOS_SDK ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -destination $IOS_DESTINATION -workspace Example/SimplifiedNotificationCenter.xcworkspace -scheme SimplifiedNotificationCenter-Example ONLY_ACTIVE_ARCH=NO | xcpretty
 
