@@ -2,6 +2,8 @@ name: deploy_to_cocoapods
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ master ]
 
 jobs:
   build:

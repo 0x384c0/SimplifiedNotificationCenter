@@ -2,6 +2,9 @@ name: tests
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - '*'
 
 jobs:
   tests:
