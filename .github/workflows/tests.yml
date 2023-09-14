@@ -1,0 +1,15 @@
+name: tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tests:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Run Tests
+      run: swift test
