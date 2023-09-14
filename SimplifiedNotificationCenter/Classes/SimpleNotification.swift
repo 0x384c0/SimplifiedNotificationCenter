@@ -2,8 +2,8 @@
 //  SimpleNotification.swift
 //  SimplifiedNotificationCenter
 //
-//  Created by Andrew Ashurow on 3/7/16.
-//  Copyright © 2016 Andrew Ashurow. All rights reserved.
+//  Created by 0x384c0 on 3/7/16.
+//  Copyright © 2016 0x384c0. All rights reserved.
 //
 
 import Foundation

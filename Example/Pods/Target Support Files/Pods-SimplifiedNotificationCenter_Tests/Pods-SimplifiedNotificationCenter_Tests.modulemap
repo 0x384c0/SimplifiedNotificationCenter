@@ -1,6 +1,0 @@
-framework module Pods_SimplifiedNotificationCenter_Tests {
-  umbrella header "Pods-SimplifiedNotificationCenter_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
