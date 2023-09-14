@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SimplifiedNotificationCenter'
-  s.version          = '1.1.6'
+  s.version          = '1.1.7'
   s.summary          = 'Simple Notification Center'
 
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author           = { '0x384c0' => '0x384c0@gmail.com' }
   s.source           = { :git => 'https://github.com/0x384c0/SimplifiedNotificationCenter.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'SimplifiedNotificationCenter/Classes/**/*'
 end

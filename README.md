@@ -10,19 +10,25 @@ This is a tiny swift wrapper around NSNotificationCenter with generics, that aid
 
 ## Installation
 
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
+
+Once you have your Swift package set up, adding SimplifiedNotificationCenter as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/0x384c0/SimplifiedNotificationCenter.git")
+]
+```
+
+### CocoaPods
+
 SimplifiedNotificationCenter is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "SimplifiedNotificationCenter"
-```
-
-If you using swift 2.2, add the following line to your Podfile:
-
-```ruby
-pod "SimplifiedNotificationCenter",
-:git => 'https://github.com/0x384c0/SimplifiedNotificationCenter.git',
-:branch => 'swift2.2'
 ```
 
 ## Usage
@@ -96,7 +102,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-- `ios 9.0 and higher`
+- `ios 11.0 and higher`
 - `swift v5.0`
 
 
