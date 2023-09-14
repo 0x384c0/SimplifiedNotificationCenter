@@ -1,6 +1,8 @@
 # SimplifiedNotificationCenter
 
-[![CI Status](http://img.shields.io/travis/0x384c0/SimplifiedNotificationCenter.svg?style=flat)](https://travis-ci.com/0x384c0/SimplifiedNotificationCenter)
+
+![tests workflow](https://github.com/0x384c0/SimplifiedNotificationCenter/actions/workflows/tests.yml/badge.svg)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 [![Version](https://img.shields.io/cocoapods/v/SimplifiedNotificationCenter.svg?style=flat)](http://cocoapods.org/pods/SimplifiedNotificationCenter)
 [![License](https://img.shields.io/cocoapods/l/SimplifiedNotificationCenter.svg?style=flat)](http://cocoapods.org/pods/SimplifiedNotificationCenter)
 [![Platform](https://img.shields.io/cocoapods/p/SimplifiedNotificationCenter.svg?style=flat)](http://cocoapods.org/pods/SimplifiedNotificationCenter)
