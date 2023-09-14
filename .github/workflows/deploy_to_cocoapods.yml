@@ -1,9 +1,7 @@
 name: deploy_to_cocoapods
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
 
 jobs:
   build:
